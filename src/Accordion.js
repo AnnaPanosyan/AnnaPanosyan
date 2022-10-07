@@ -22,9 +22,10 @@ const Accordion = ({ id, text, title }) => {
                     e.preventDefault()
                     setOpen(!open)
                 }}
-                style={{ color: 'blue', textDecoration: 'none', marginButton: '10px', }}>{title}</a>
+                style={{ color: 'blue', textDecoration: 'none', marginButton: '10px'
+                }}>{title}</a>
             <br />
-            {open && <div>{text}
+            {open && <div>{text}git branch -M main
                 <ul key={id} >
                 <br />
                     <h4> Comment </h4>
@@ -32,7 +33,6 @@ const Accordion = ({ id, text, title }) => {
                         <li key={com.id}><Comment comment={com.body} /></li>
                     ))} </ul>
                 <br />
-
             </div>}
         </div>
     )
