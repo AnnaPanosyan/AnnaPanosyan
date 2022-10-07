@@ -5,11 +5,10 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script';
 import Posts from './Posts';
 import './App.css';
-import Button from '@mui/material/Button'
 
 
 function App() {
-const [profile, setProfile] = useState(null);
+    const [profile, setProfile] = useState(null);
     const clientId = '214212293665-9g1jh24ljqed9eik0vm3qh07sl1c545o.apps.googleusercontent.com';
     console.log(profile);
 
@@ -41,30 +40,30 @@ const [profile, setProfile] = useState(null);
         <div className="container" >
             {profile ? (
                 <div className="posts">
-                <div className="titls">
+                    <div className="titls">
                         <h2>React Google Login</h2>
                         <div className="logout">
-                        <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />
-                       </div>
+                            <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />
+                        </div>
                     </div>
                     <div>
-                    <img src={profile.imageUrl} alt="user" />
-                    <p>Name: {profile.name} posts</p>
-                    <p>Email Address: {profile.email}</p>
-                    <Posts />
+                        <img src={profile.imageUrl} alt="user" />
+                        <p>Name: {profile.name} posts</p>
+                        <p>Email Address: {profile.email}</p>
+                        <Posts />
                     </div>
                 </div>
-    ) : (
-            <GoogleLogin
-                clientId={clientId}
-                buttonText="Sign in with Google"
-                onSuccess={onSuccess}
-                onFailure={onFailure}
-                cookiePolicy={'single_host_origin'}
-                isSignedIn={true}
-            />
-    )
-}
+            ) : (
+                <GoogleLogin
+                    clientId={clientId}
+                    buttonText="Sign in with Google"
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    cookiePolicy={'single_host_origin'}
+                    isSignedIn={true}
+                />
+            )
+            }
         </div >
     );
 }
